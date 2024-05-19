@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { TitleComponent } from './components/Title'
+import { WeigthFormComponent } from './components/WeigthForm'
 
 export default function App() {
   return (
     <View style={styles.container}>
       <TitleComponent/>
+
+      <WeigthFormComponent/>
     </View>
   );
 }
