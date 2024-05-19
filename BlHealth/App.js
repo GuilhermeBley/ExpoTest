@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { TitleComponent } from './components/title'
+import { TitleComponent } from './components/Title'
 
 export default function App() {
   return (
