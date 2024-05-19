@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { TitleComponent } from './components/Title'
-import { WeigthFormComponent } from './components/WeigthForm'
+import BmiFormComponent from './components/BmiForm'
 
 export default function App() {
   return (
     <View style={styles.container}>
       <TitleComponent/>
 
-      <WeigthFormComponent/>
+      <BmiFormComponent/>
     </View>
   );
 }
