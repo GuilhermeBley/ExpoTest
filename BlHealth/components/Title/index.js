@@ -1,7 +1,10 @@
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import style from './style'
 
 export function TitleComponent() {
     return (
-        <Text>BlHealth!</Text>
+        <View style={style.boxTitle}>
+            <Text style={style.textTitle}>BlHealth</Text>
+        </View>
     );
 }
