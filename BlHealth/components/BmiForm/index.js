@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Text, TextInput, View, Button } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity } from 'react-native';
+import Style from './style'
 
 const Component = () => {
 
@@ -12,9 +13,8 @@ const Component = () => {
     const [message, setMessage] = useState(defaultMessage);
     const [buttonMessage, setButtonMessage] = useState(defaultButton);
 
-    function calculateImc()
-    {
-        if (buttonMessage === defaultClearButton){
+    function calculateImc() {
+        if (buttonMessage === defaultClearButton) {
             setWeigth(null)
             setHeight(null)
             setButtonMessage(defaultButton)
@@ -33,31 +33,37 @@ const Component = () => {
             return
         }
 
-        let bmi = (weigth/(height*height)).toFixed(2)
+        let bmi = (weigth / (height * height)).toFixed(2)
         setMessage("Your BMI is " + bmi + ".")
         setButtonMessage(defaultClearButton)
     }
 
     return (
-        <View>
-            <Text>Heigth</Text>
-            <TextInput 
-                placeholder='Ex. 1.2'
-                value={height}
-                onChangeText={setHeight}
-                keyboardType='numeric'/>
+        <View style={Style.formContext}>
+            <View style={Style.form}>
+                <Text style={Style.formLabel}>Heigth</Text>
+                <TextInput
+                    style={Style.input}
+                    placeholder='Ex. 1.2'
+                    value={height}
+                    onChangeText={setHeight}
+                    keyboardType='numeric' />
 
 
-            <Text>Weigth</Text>
-            <TextInput 
-                value={weigth}
-                onChangeText={setWeigth}
-                placeholder='Ex. 70'
-                keyboardType='numeric'/>
+                <Text style={Style.formLabel}>Weigth</Text>
+                <TextInput
+                    style={Style.input}
+                    value={weigth}
+                    onChangeText={setWeigth}
+                    placeholder='Ex. 70'
+                    keyboardType='numeric' />
 
-            <Button onPress={calculateImc} title={buttonMessage} />
-            
-            <Text>{message}</Text>
+                <TouchableOpacity style={Style.buttonCalculator} onPress={calculateImc} >
+                    <Text style={Style.textButtonCalculator}>{buttonMessage}</Text>
+                </TouchableOpacity>
+
+                <Text>{message}</Text>
+            </View>
         </View>
     );
 }
